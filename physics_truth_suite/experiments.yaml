@@ -1,0 +1,263 @@
+version: 0.1.0
+status: seed-candidates
+experiments:
+  - id: RK-MECH-001
+    category: mechanics
+    title: Simple pendulum small-angle period
+    ground_truth: T = 2*pi*sqrt(L/g) for small angular displacement
+    validation_target: Simulated period within 1 percent for angles below 10 degrees
+  - id: RK-MECH-002
+    category: mechanics
+    title: Large-angle pendulum correction
+    ground_truth: Elliptic-integral period correction relative to small-angle approximation
+    validation_target: Period increases monotonically with initial angle
+  - id: RK-MECH-003
+    category: mechanics
+    title: Projectile motion without drag
+    ground_truth: Parabolic trajectory under constant gravity
+    validation_target: Range and flight time within analytical tolerance
+  - id: RK-MECH-004
+    category: mechanics
+    title: Inclined plane acceleration
+    ground_truth: a = g*sin(theta) for frictionless plane
+    validation_target: Acceleration tracks analytical result across theta sweep
+  - id: RK-MECH-005
+    category: mechanics
+    title: Inclined plane with Coulomb friction
+    ground_truth: a = g*(sin(theta) - mu*cos(theta))
+    validation_target: Static and kinetic thresholds match expected regimes
+  - id: RK-MECH-006
+    category: mechanics
+    title: Hooke law spring oscillator
+    ground_truth: T = 2*pi*sqrt(m/k)
+    validation_target: Oscillation period and amplitude conservation within tolerance
+  - id: RK-MECH-007
+    category: mechanics
+    title: Damped harmonic oscillator
+    ground_truth: Exponential envelope for underdamped motion
+    validation_target: Decay constant and damped frequency match analytical solution
+  - id: RK-MECH-008
+    category: mechanics
+    title: Elastic one-dimensional collision
+    ground_truth: Conservation of momentum and kinetic energy
+    validation_target: Post-collision velocities match analytical solution
+  - id: RK-MECH-009
+    category: mechanics
+    title: Inelastic one-dimensional collision
+    ground_truth: Momentum conservation with coefficient of restitution
+    validation_target: Energy loss and rebound velocity match restitution parameter
+  - id: RK-MECH-010
+    category: mechanics
+    title: Rolling cylinder down incline
+    ground_truth: a = g*sin(theta)/(1 + I/(m*r^2))
+    validation_target: Translational acceleration matches rigid-body theory
+  - id: RK-MECH-011
+    category: mechanics
+    title: Rigid body torque response
+    ground_truth: alpha = tau/I
+    validation_target: Angular acceleration scales linearly with torque
+  - id: RK-MECH-012
+    category: mechanics
+    title: Conservation of angular momentum
+    ground_truth: L remains constant without external torque
+    validation_target: Angular momentum drift remains below tolerance
+  - id: RK-MECH-013
+    category: mechanics
+    title: Two-body gravitational orbit
+    ground_truth: Keplerian ellipse for inverse-square attraction
+    validation_target: Orbital period and energy remain stable
+  - id: RK-MECH-014
+    category: mechanics
+    title: Center-of-mass conservation
+    ground_truth: Isolated multi-body center of mass moves at constant velocity
+    validation_target: Center-of-mass drift remains below tolerance
+  - id: RK-MECH-015
+    category: mechanics
+    title: Energy conservation in frictionless multi-body system
+    ground_truth: Total mechanical energy remains constant
+    validation_target: Energy drift bounded over long run
+  - id: RK-THERMO-001
+    category: thermodynamics
+    title: Boyle law isothermal gas compression
+    ground_truth: P*V = constant at fixed temperature
+    validation_target: Pressure-volume curve follows inverse relationship
+  - id: RK-THERMO-002
+    category: thermodynamics
+    title: Charles law constant-pressure expansion
+    ground_truth: V/T = constant at fixed pressure
+    validation_target: Volume scales linearly with absolute temperature
+  - id: RK-THERMO-003
+    category: thermodynamics
+    title: Gay-Lussac law constant-volume heating
+    ground_truth: P/T = constant at fixed volume
+    validation_target: Pressure scales linearly with absolute temperature
+  - id: RK-THERMO-004
+    category: thermodynamics
+    title: Ideal gas law consistency
+    ground_truth: P*V = n*R*T
+    validation_target: State variables satisfy ideal gas equation
+  - id: RK-THERMO-005
+    category: thermodynamics
+    title: Newton cooling
+    ground_truth: Exponential temperature decay toward ambient
+    validation_target: Cooling curve matches fitted time constant
+  - id: RK-THERMO-006
+    category: thermodynamics
+    title: One-dimensional heat diffusion
+    ground_truth: Heat equation solution for rod with fixed boundary conditions
+    validation_target: Temperature profile matches analytical or finite-difference baseline
+  - id: RK-THERMO-007
+    category: thermodynamics
+    title: Blackbody Stefan-Boltzmann emission
+    ground_truth: Radiated power proportional to T^4
+    validation_target: Emissive power follows fourth-power scaling
+  - id: RK-FLUID-001
+    category: fluid_dynamics
+    title: Poiseuille pipe flow
+    ground_truth: Volumetric flow proportional to pressure gradient and r^4
+    validation_target: Laminar flow rate matches Hagen-Poiseuille law
+  - id: RK-FLUID-002
+    category: fluid_dynamics
+    title: Stokes drag on small sphere
+    ground_truth: F = 6*pi*eta*r*v for low Reynolds number
+    validation_target: Drag force scales linearly with velocity and viscosity
+  - id: RK-FLUID-003
+    category: fluid_dynamics
+    title: Terminal velocity in viscous fluid
+    ground_truth: Gravity, buoyancy, and drag balance
+    validation_target: Terminal velocity matches analytical Stokes estimate
+  - id: RK-FLUID-004
+    category: fluid_dynamics
+    title: Hydrostatic pressure gradient
+    ground_truth: P = rho*g*h
+    validation_target: Pressure increases linearly with depth
+  - id: RK-FLUID-005
+    category: fluid_dynamics
+    title: Buoyancy of submerged object
+    ground_truth: Archimedes principle
+    validation_target: Buoyant force equals displaced fluid weight
+  - id: RK-FLUID-006
+    category: fluid_dynamics
+    title: Bernoulli constriction flow
+    ground_truth: Pressure decreases where velocity increases
+    validation_target: Energy head remains approximately conserved
+  - id: RK-EM-001
+    category: electromagnetism
+    title: Coulomb force between point charges
+    ground_truth: F = k*q1*q2/r^2
+    validation_target: Force follows inverse-square law
+  - id: RK-EM-002
+    category: electromagnetism
+    title: Uniform electric field acceleration
+    ground_truth: a = q*E/m
+    validation_target: Charged particle trajectory matches analytical solution
+  - id: RK-EM-003
+    category: electromagnetism
+    title: Magnetic circular motion
+    ground_truth: r = m*v/(q*B)
+    validation_target: Circular radius matches Lorentz-force prediction
+  - id: RK-EM-004
+    category: electromagnetism
+    title: LC oscillator frequency
+    ground_truth: omega = 1/sqrt(L*C)
+    validation_target: Simulated oscillation period matches circuit theory
+  - id: RK-EM-005
+    category: electromagnetism
+    title: Ohm law resistor response
+    ground_truth: V = I*R
+    validation_target: Current-voltage relationship remains linear
+  - id: RK-OPT-001
+    category: optics_and_waves
+    title: Snell law refraction
+    ground_truth: n1*sin(theta1) = n2*sin(theta2)
+    validation_target: Refraction angle matches analytical result
+  - id: RK-OPT-002
+    category: optics_and_waves
+    title: Law of reflection
+    ground_truth: Incident angle equals reflected angle
+    validation_target: Reflected ray geometry matches expected angle
+  - id: RK-OPT-003
+    category: optics_and_waves
+    title: Double-slit interference spacing
+    ground_truth: Fringe spacing proportional to wavelength*distance/slit separation
+    validation_target: Peak spacing matches wave optics baseline
+  - id: RK-OPT-004
+    category: optics_and_waves
+    title: Standing wave on string
+    ground_truth: f_n = n*v/(2*L)
+    validation_target: Mode frequencies match harmonic series
+  - id: RK-OPT-005
+    category: optics_and_waves
+    title: Doppler shift for moving source
+    ground_truth: Observed frequency changes with relative velocity
+    validation_target: Frequency shift matches classical Doppler equation
+  - id: RK-CHEM-001
+    category: chemistry
+    title: Hydrogen spectral line wavelengths
+    ground_truth: Rydberg formula for Balmer series
+    validation_target: Predicted spectral lines match reference wavelengths
+  - id: RK-CHEM-002
+    category: chemistry
+    title: Water vapor pressure curve
+    ground_truth: Reference vapor pressure from NIST Chemistry WebBook
+    validation_target: Simulated or modeled vapor pressure follows reference curve
+  - id: RK-CHEM-003
+    category: chemistry
+    title: Ideal solution Raoult law
+    ground_truth: Partial vapor pressure proportional to mole fraction
+    validation_target: Vapor pressure tracks composition under ideal assumptions
+  - id: RK-CHEM-004
+    category: chemistry
+    title: Arrhenius reaction-rate scaling
+    ground_truth: k = A*exp(-Ea/(R*T))
+    validation_target: Rate constant follows temperature-dependent exponential scaling
+  - id: RK-CHEM-005
+    category: chemistry
+    title: Diffusion mean-square displacement
+    ground_truth: MSD = 2*d*D*t
+    validation_target: Particle diffusion scales linearly with time
+  - id: RK-MAT-001
+    category: materials
+    title: Aluminum density and mass property check
+    ground_truth: Density near 2700 kg/m^3 at room temperature
+    validation_target: Generated object mass matches geometry and material density
+  - id: RK-MAT-002
+    category: materials
+    title: Steel Young modulus deformation
+    ground_truth: Linear elastic strain under small stress
+    validation_target: Deformation remains in expected elastic range
+  - id: RK-MAT-003
+    category: materials
+    title: Thermal expansion of aluminum rod
+    ground_truth: Delta L = alpha*L*Delta T
+    validation_target: Length change matches coefficient of thermal expansion
+  - id: RK-MAT-004
+    category: materials
+    title: Coefficient of restitution material pair
+    ground_truth: Empirical restitution range for sphere-plane collision
+    validation_target: Bounce height matches configured material pair
+  - id: RK-ROBO-001
+    category: robotics_contact
+    title: Robotic gripper normal-force hold
+    ground_truth: Object slips when friction cone condition is violated
+    validation_target: Slip threshold follows mu*N >= tangential load
+  - id: RK-ROBO-002
+    category: robotics_contact
+    title: Box stacking stability
+    ground_truth: Stable when center of mass projection remains inside support polygon
+    validation_target: Toppling threshold matches geometric stability criterion
+  - id: RK-ROBO-003
+    category: robotics_contact
+    title: Contact impulse restitution
+    ground_truth: Impulse response determined by mass and restitution
+    validation_target: Post-impact velocity matches impulse-momentum estimate
+  - id: RK-ROBO-004
+    category: robotics_contact
+    title: Static friction cone
+    ground_truth: Tangential force bound equals mu times normal force
+    validation_target: Transition from sticking to sliding occurs at expected threshold
+  - id: RK-ROBO-005
+    category: robotics_contact
+    title: Planar pushing quasi-static motion
+    ground_truth: Object twist depends on contact point and friction distribution
+    validation_target: Motion direction follows quasi-static pushing baseline
